@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government of India - Official Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Skip to Content Button for Screen Readers -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+    <!-- Back Button -->
+    <button class="back-button" id="back-button" onclick="goBack()" aria-label="Go back">
+        <i class="fas fa-arrow-left"></i>
+    </button>
+
+    <!-- Stop Reading Button -->
+    <button class="stop-reading" id="stop-reading" onclick="stopReading()" aria-label="Stop reading">
+        <i class="fas fa-stop"></i> Stop Reading
+    </button>
+
+    <!-- Header -->
+    <header role="banner">
+        <!-- Top Bar with Accessibility Tools -->
+        <div class="top-bar">
+            <div class="container">
+                <div class="top-bar-content">
+                    <div class="accessibility-info">
+                        <span>Last Updated:</span> <time datetime="2025-07-14">July 14, 2025</time>
+                    </div>
+                    <div class="accessibility-tools">
+                        <button id="text-resize-decrease" aria-label="Decrease text size" title="Decrease text size (Alt -)">
+                            <span aria-hidden="true">A-</span>
+                        </button>
+                        <button id="text-resize-default" aria-label="Default text size" title="Default text size (Alt 0)">
+                            <span aria-hidden="true">A</span>
+                        </button>
+                        <button id="text-resize-increase" aria-label="Increase text size" title="Increase text size (Alt +)">
+                            <span aria-hidden="true">A+</span>
+                        </button>
+                        <button id="high-contrast-toggle" aria-label="Toggle high contrast mode" title="Toggle high contrast mode (Alt C)">
+                            <i class="fas fa-adjust" aria-hidden="true"></i>
+                        </button>
+                        <button id="dark-mode-toggle" aria-label="Toggle dark mode" title="Toggle dark mode (Alt D)">
+                            <i class="fas fa-moon" aria-hidden="true"></i>
+                        </button>
+                        <button id="voice-reader" aria-label="Read page content aloud" title="Read page content aloud (Alt R)">
+                            <i class="fas fa-volume-up" aria-hidden="true"></i>
+                        </button>
+                        <div class="language-switcher">
+                            <label for="language-select" class="sr-only">Select Language</label>
+                            <select id="language-select" aria-label="Language Selection">
+                                <option value="en" selected>English</option>
+                                <option value="hi">हिन्दी</option>
+                                <option value="ta">தமிழ்</option>
+                                <option value="bn">বাংলা</option>
+                                <option value="mr">मराठी</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Header -->
+        <div class="container">
+            <div class="main-header">
+                <div class="logo-section">
+                    <img src="data:image/jpeg;base64,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" alt="Government of India Emblem">
+                    <div class="site-title">
+                        <h1>Government of India</h1>
+                        <p>सत्यमेव जयते (Truth Alone Triumphs)</p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <div class="search-bar">
+                        <input type="search" id="site-search" placeholder="Search government services..." aria-label="Search">
+                        <button type="button" id="search-button" aria-label="Search">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="user-menu">
+                        <div class="user-info" id="user-info">
+                            <div class="user-avatar" id="user-avatar">U</div>
+                            <span id="user-name">User</span>
+                            <button class="btn-secondary" id="logout-btn" onclick="logout()">Logout</button>
+                        </div>
+                        <div class="auth-buttons" id="auth-buttons">
+                            <button class="btn-login" onclick="openAuthModal('user-login')">Login</button>
+                            <button class="btn-signup" onclick="openAuthModal('signup')">Sign Up</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav role="navigation" aria-label="Main Navigation">
+            <div class="container">
+                <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+                <ul class="nav-menu" id="main-menu">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link active" data-page="home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link" data-page="about">About Us</a>
+                        <div class="dropdown" role="menu">
+                            <a href="#vision" class="dropdown-item" data-page="about" data-section="vision">Our Vision</a>
+                            <a href="#mission" class="dropdown-item" data-page="about" data-section="mission">Our Mission</a>
+                            <a href="#history" class="dropdown-item" data-page="about" data-section="history">History</a>
+                            <a href="#organization" class="dropdown-item" data-page="about" data-section="organization">Organization Structure</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#schemes" class="nav-link" data-page="schemes">Schemes & Services</a>
+                        <div class="dropdown" role="menu">
+                            <a href="#agriculture" class="dropdown-item" data-page="schemes" data-category="agriculture">Agriculture</a>
+                            <a href="#education" class="dropdown-item" data-page="schemes" data-category="education">Education</a>
+                            <a href="#health" class="dropdown-item" data-page="schemes" data-category="health">Health</a>
+                            <a href="#employment" class="dropdown-item" data-page="schemes" data-category="employment">Employment</a>
+                            <a href="#welfare" class="dropdown-item" data-page="schemes" data-category="welfare">Social Welfare</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#citizen" class="nav-link" data-page="citizen">Citizen Corner</a>
+                        <div class="dropdown" role="menu">
+                            <a href="#forms" class="dropdown-item" data-page="citizen" data-section="forms">Download Forms</a>
+                            <a href="#grievance" class="dropdown-item" data-page="citizen" data-section="grievance">Grievance Redressal</a>
+                            <a href="#faq" class="dropdown-item" data-page="citizen" data-section="faq">FAQs</a>
+                            <a href="#helpline" class="dropdown-item" data-page="citizen" data-section="helpline">Helpline Numbers</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#dashboard" class="nav-link" data-page="dashboard" id="dashboard-nav" style="display:none;">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#admin" class="nav-link" data-page="admin" id="admin-nav" style="display:none;">Admin Panel</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#accessibility" class="nav-link" data-page="accessibility">Accessibility</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link" data-page="contact">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <div class="container">
+            <!-- Home Page Section -->
+            <section id="home" class="page-section active" aria-labelledby="home-title">
+                <h1 id="home-title" class="section-title">Welcome to the Government of India Portal</h1>
+                
+                <!-- Hero Banner -->
+                <div class="hero-banner">
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h2>Empowering Citizens Through Digital Governance</h2>
+                            <p>Access government services, schemes, and information from the comfort of your home. Our portal is designed to be inclusive, accessible, and user-friendly for all citizens.</p>
+                            <a href="#schemes" class="btn-primary" data-page="schemes">Explore Schemes</a>
+                        </div>
+                        <div class="hero-image">
+                            <img src="data:image/jpeg;base64,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" alt="Digital India Initiative">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Announcements Section -->
+                <div class="announcement-section" aria-labelledby="announcement-title">
+                    <div class="announcement-header">
+                        <h3 id="announcement-title">Latest Announcements</h3>
+                        <button class="btn-primary" id="pause-announcement" aria-label="Pause announcement scrolling">Pause</button>
+                    </div>
+                    <div class="announcement-ticker" aria-live="polite" aria-atomic="true">
+                        <div class="announcement-content" id="announcement-content">
+                            <div class="announcement-item">
+                                <i class="fas fa-bullhorn" aria-hidden="true"></i>
+                                <span>New Agricultural Support Scheme launched for farmers - Apply now!</span>
+                            </div>
+                            <div class="announcement-item">
+                                <i class="fas fa-bullhorn" aria-hidden="true"></i>
+                                <span>Digital Literacy Program extended to all districts - Register today</span>
+                            </div>
+                            <div class="announcement-item">
+                                <i class="fas fa-bullhorn" aria-hidden="true"></i>
+                                <span>Health Insurance coverage expanded to include more treatments</span>
+                            </div>
+                            <div class="announcement-item">
+                                <i class="fas fa-bullhorn" aria-hidden="true"></i>
+                                <span>Educational Scholarships application deadline extended to December 31</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Services Grid -->
+                <div class="services-grid" aria-labelledby="services-title">
+                    <h2 id="services-title" class="sr-only">Government Services</h2>
+                    <div class="service-card" tabindex="0" role="button" aria-label="Agricultural Services" onclick="handleServiceClick('agriculture')">
+                        <i class="fas fa-seedling" aria-hidden="true"></i>
+                        <h3>Agriculture</h3>
+                        <p>Access agricultural schemes, subsidies, and support services for farmers.</p>
+                    </div>
+                    <div class="service-card" tabindex="0" role="button" aria-label="Education Services" onclick="handleServiceClick('education')">
+                        <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                        <h3>Education</h3>
+                        <p>Find scholarships, educational loans, and skill development programs.</p>
+                    </div>
+                    <div class="service-card" tabindex="0" role="button" aria-label="Health Services" onclick="handleServiceClick('health')">
+                        <i class="fas fa-heartbeat" aria-hidden="true"></i>
+                        <h3>Health</h3>
+                        <p>Health insurance schemes, hospital information, and medical facilities.</p>
+                    </div>
+                    <div class="service-card" tabindex="0" role="button" aria-label="Employment Services" onclick="handleServiceClick('employment')">
+                        <i class="fas fa-briefcase" aria-hidden="true"></i>
+                        <h3>Employment</h3>
+                        <p>Job opportunities, skill training, and employment generation schemes.</p>
+                    </div>
+                    <div class="service-card" tabindex="0" role="button" aria-label="Pension Services" onclick="handleServiceClick('pension')">
+                        <i class="fas fa-user-clock" aria-hidden="true"></i>
+                        <h3>Pension</h3>
+                        <p>Pension schemes for senior citizens, government employees, and more.</p>
+                    </div>
+                    <div class="service-card" tabindex="0" role="button" aria-label="Housing Services" onclick="handleServiceClick('housing')">
+                        <i class="fas fa-home" aria-hidden="true"></i>
+                        <h3>Housing</h3>
+                        <p>Housing schemes, home loans, and urban development initiatives.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="page-section" aria-labelledby="dashboard-title">
+                <h1 id="dashboard-title" class="section-title">User Dashboard</h1>
+                
+                <div class="dashboard active">
+                    <div class="dashboard-header">
+                        <div class="dashboard-welcome">
+                            <h2>Welcome back, <span id="dashboard-user-name">User</span>!</h2>
+                            <p>Here's an overview of your account and recent activities</p>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <i class="fas fa-file-alt"></i>
+                            <h3 id="applications-count">0</h3>
+                            <p>Applications Submitted</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-check-circle"></i>
+                            <h3 id="approved-count">0</h3>
+                            <p>Applications Approved</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-clock"></i>
+                            <h3 id="pending-count">0</h3>
+                            <p>Pending Applications</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-download"></i>
+                            <h3 id="downloads-count">0</h3>
+                            <p>Forms Downloaded</p>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-actions">
+                        <div class="action-card" onclick="showPage('schemes')">
+                            <i class="fas fa-search"></i>
+                            <h4>Browse Schemes</h4>
+                            <p>Find and apply for government schemes</p>
+                        </div>
+                        <div class="action-card" onclick="showPage('citizen')">
+                            <i class="fas fa-file-download"></i>
+                            <h4>Download Forms</h4>
+                            <p>Access and download government forms</p>
+                        </div>
+                        <div class="action-card" onclick="trackApplications()">
+                            <i class="fas fa-tasks"></i>
+                            <h4>Track Applications</h4>
+                            <p>Check status of your applications</p>
+                        </div>
+                        <div class="action-card" onclick="showPage('contact')">
+                            <i class="fas fa-headset"></i>
+                            <h4>Get Support</h4>
+                            <p>Contact helpdesk for assistance</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Admin Panel Section -->
+            <section id="admin" class="page-section" aria-labelledby="admin-title">
+                <h1 id="admin-title" class="section-title">Admin Panel</h1>
+                
+                <div class="admin-panel active">
+                    <div class="admin-header">
+                        <div>
+                            <h2>Admin Dashboard</h2>
+                            <p>Manage users, content, and system settings</p>
+                        </div>
+                        <div>
+                            <span id="admin-welcome">Welcome, Admin</span>
+                        </div>
+                    </div>
+
+                    <div class="admin-nav">
+                        <button class="active" onclick="showAdminContent('dashboard')">Dashboard</button>
+                        <button onclick="showAdminContent('users')">User Management</button>
+                        <button onclick="showAdminContent('activity')">User Activity</button>
+                        <button onclick="showAdminContent('content')">Content Management</button>
+                        <button onclick="showAdminContent('feedback')">Feedback</button>
+                        <button onclick="showAdminContent('analytics')">Analytics</button>
+                    </div>
+
+                    <!-- Admin Dashboard Content -->
+                    <div id="admin-dashboard" class="admin-content active">
+                        <div class="admin-card">
+                            <h3>System Overview</h3>
+                            <div class="dashboard-stats">
+                                <div class="stat-card">
+                                    <i class="fas fa-users"></i>
+                                    <h3 id="total-users">0</h3>
+                                    <p>Total Users</p>
+                                </div>
+                                <div class="stat-card">
+                                    <i class="fas fa-user-clock"></i>
+                                    <h3 id="active-users">0</h3>
+                                    <p>Active Users Today</p>
+                                </div>
+                                <div class="stat-card">
+                                    <i class="fas fa-file-alt"></i>
+                                    <h3 id="total-applications">0</h3>
+                                    <p>Total Applications</p>
+                                </div>
+                                <div class="stat-card">
+                                    <i class="fas fa-comments"></i>
+                                    <h3 id="pending-feedback">0</h3>
+                                    <p>Pending Feedback</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="admin-card">
+                            <h3>User Activity Chart</h3>
+                            <div class="user-activity-chart" id="user-activity-chart">
+                                <!-- Chart bars will be generated dynamically -->
+                            </div>
+                        </div>
+
+                        <div class="admin-card">
+                            <h3>Recent Activity Log</h3>
+                            <div class="activity-log" id="activity-log">
+                                <!-- Activity entries will be generated dynamically -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- User Management Content -->
+                    <div id="admin-users" class="admin-content">
+                        <div class="admin-card">
+                            <h3>User Management</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="user-search">Search Users</label>
+                                    <input type="text" id="user-search" placeholder="Search by name or email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="user-filter">Filter by Status</label>
+                                    <select id="user-filter">
+                                        <option value="all">All Users</option>
+                                        <option value="active">Active</option>
+                                        <option value="inactive">Inactive</option>
+                                        <option value="suspended">Suspended</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>&nbsp;</label>
+                                    <button class="btn-primary" onclick="filterUsers()">Apply Filter</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="admin-card">
+                            <h3>User List</h3>
+                            <table class="data-table" id="users-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
+                                        <th>Status</th>
+                                        <th>Registration Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="users-tbody">
+                                    <!-- User rows will be generated dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- User Activity Content -->
+                    <div id="admin-activity" class="admin-content">
+                        <div class="admin-card">
+                            <h3>User Activity Tracking</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="activity-user">Select User</label>
+                                    <select id="activity-user">
+                                        <option value="all">All Users</option>
+                                        <!-- User options will be generated dynamically -->
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="activity-date-from">From Date</label>
+                                    <input type="date" id="activity-date-from">
+                                </div>
+                                <div class="form-group">
+                                    <label for="activity-date-to">To Date</label>
+                                    <input type="date" id="activity-date-to">
+                                </div>
+                                <div class="form-group">
+                                    <label>&nbsp;</label>
+                                    <button class="btn-primary" onclick="filterActivity()">Apply Filter</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="admin-card">
+                            <h3>Activity Log</h3>
+                            <div class="activity-log" id="user-activity-log">
+                                <!-- Activity entries will be generated dynamically -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Management Content -->
+                    <div id="admin-content" class="admin-content">
+                        <div class="admin-card">
+                            <h3>Content Management</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="content-type">Content Type</label>
+                                    <select id="content-type">
+                                        <option value="announcement">Announcements</option>
+                                        <option value="scheme">Schemes</option>
+                                        <option value="faq">FAQs</option>
+                                        <option value="helpline">Helpline Numbers</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="content-action">Action</label>
+                                    <select id="content-action">
+                                        <option value="add">Add New</option>
+                                        <option value="edit">Edit Existing</option>
+                                        <option value="delete">Delete</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>&nbsp;</label>
+                                    <button class="btn-primary" onclick="loadContentForm()">Load Form</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="admin-card" id="content-form-container" style="display: none;">
+                            <h3 id="content-form-title">Add/Edit Content</h3>
+                            <form id="content-form">
+                                <div class="form-group">
+                                    <label for="content-title">Title</label>
+                                    <input type="text" id="content-title" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="content-description">Description</label>
+                                    <textarea id="content-description" rows="5" required></textarea>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="content-category">Category</label>
+                                        <select id="content-category">
+                                            <option value="agriculture">Agriculture</option>
+                                            <option value="education">Education</option>
+                                            <option value="health">Health</option>
+                                            <option value="employment">Employment</option>
+                                            <option value="welfare">Social Welfare</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="content-status">Status</label>
+                                        <select id="content-status">
+                                            <option value="active">Active</option>
+                                            <option value="inactive">Inactive</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="btn-primary">Save Content</button>
+                                    <button type="button" class="btn-secondary" onclick="cancelContentForm()">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="admin-card">
+                            <h3>Existing Content</h3>
+                            <table class="data-table" id="content-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Title</th>
+                                        <th>Type</th>
+                                        <th>Category</th>
+                                        <th>Status</th>
+                                        <th>Created Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="content-tbody">
+                                    <!-- Content rows will be generated dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Feedback Management Content -->
+                    <div id="admin-feedback" class="admin-content">
+                        <div class="admin-card">
+                            <h3>Feedback Management</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="feedback-status">Filter by Status</label>
+                                    <select id="feedback-status">
+                                        <option value="all">All Feedback</option>
+                                        <option value="pending">Pending</option>
+                                        <option value="approved">Approved</option>
+                                        <option value="rejected">Rejected</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="feedback-type">Filter by Type</label>
+                                    <select id="feedback-type">
+                                        <option value="all">All Types</option>
+                                        <option value="complaint">Complaint</option>
+                                        <option value="suggestion">Suggestion</option>
+                                        <option value="query">Query</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>&nbsp;</label>
+                                    <button class="btn-primary" onclick="filterFeedback()">Apply Filter</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="admin-card">
+                            <h3>Feedback List</h3>
+                            <div id="feedback-list">
+                                <!-- Feedback items will be generated dynamically -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Analytics Content -->
+                    <div id="admin-analytics" class="admin-content">
+                        <div class="admin-card">
+                            <h3>Analytics Dashboard</h3>
+                            <div class="dashboard-stats">
+                                <div class="stat-card">
+                                    <i class="fas fa-eye"></i>
+                                    <h3 id="page-views">0</h3>
+                                    <p>Total Page Views</p>
+                                </div>
+                                <div class="stat-card">
+                                    <i class="fas fa-mouse-pointer"></i>
+                                    <h3 id="clicks">0</h3>
+                                    <p>Total Clicks</p>
+                                </div>
+                                <div class="stat-card">
+                                    <i class="fas fa-download"></i>
+                                    <h3 id="downloads">0</h3>
+                                    <p>Total Downloads</p>
+                                </div>
+                                <div class="stat-card">
+                                    <i class="fas fa-share-alt"></i>
+                                    <h3 id="shares">0</h3>
+                                    <p>Total Shares</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="admin-card">
+                            <h3>Popular Pages</h3>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Page</th>
+                                        <th>Views</th>
+                                        <th>Unique Visitors</th>
+                                        <th>Avg. Time (sec)</th>
+                                        <th>Bounce Rate</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Home</td>
+                                        <td>1,245</td>
+                                        <td>892</td>
+                                        <td>124</td>
+                                        <td>32%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Schemes & Services</td>
+                                        <td>987</td>
+                                        <td>756</td>
+                                        <td>189</td>
+                                        <td>28%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Citizen Corner</td>
+                                        <td>654</td>
+                                        <td>523</td>
+                                        <td>156</td>
+                                        <td>35%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>About Us</td>
+                                        <td>432</td>
+                                        <td>387</td>
+                                        <td>98</td>
+                                        <td>42%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="admin-card">
+                            <h3>User Demographics</h3>
+                            <div class="dashboard-stats">
+                                <div class="stat-card">
+                                    <i class="fas fa-globe"></i>
+                                    <h3>15</h3>
+                                    <p>States</p>
+                                </div>
+                                <div class="stat-card">
+                                    <i class="fas fa-city"></i>
+                                    <h3>127</h3>
+                                    <p>Cities</p>
+                                </div>
+                                <div class="stat-card">
+                                    <i class="fas fa-laptop"></i>
+                                    <h3>68%</h3>
+                                    <p>Desktop Users</p>
+                                </div>
+                                <div class="stat-card">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <h3>32%</h3>
+                                    <p>Mobile Users</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Us Page Section -->
+            <section id="about" class="page-section" aria-labelledby="about-title">
+                <h1 id="about-title" class="section-title">About Us</h1>
+                
+                <div class="about-content">
+                    <div class="about-card" id="vision">
+                        <h3>Our Vision</h3>
+                        <p>To create an inclusive, transparent, and responsive governance system that leverages technology to empower every citizen and ensure equitable access to government services.</p>
+                        <p>We envision a India where every citizen, regardless of their abilities or location, can participate fully in the democratic process and access government services with dignity and ease.</p>
+                    </div>
+                    <div class="about-card" id="mission">
+                        <h3>Our Mission</h3>
+                        <p>To transform governance through digital innovation, making government services accessible, efficient, and citizen-centric.</p>
+                        <p>We are committed to breaking down barriers to access, ensuring that our digital platforms are inclusive, and continuously improving based on citizen feedback.</p>
+                    </div>
+                </div>
+
+                <div class="about-card" id="history">
+                    <h3>Our History</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">1947</div>
+                            <div class="timeline-content">
+                                <h4>Independence and Birth of a Nation</h4>
+                                <p>India gained independence, establishing the foundation for democratic governance.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">1950</div>
+                            <div class="timeline-content">
+                                <h4>Constitution Adopted</h4>
+                                <p>The Constitution of India came into effect, establishing the framework for governance.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2006</div>
+                            <div class="timeline-content">
+                                <h4>National e-Governance Plan</h4>
+                                <p>Launch of comprehensive e-governance initiatives to transform service delivery.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2015</div>
+                            <div class="timeline-content">
+                                <h4>Digital India Initiative</h4>
+                                <p>Comprehensive program to transform India into a digitally empowered society.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2023</div>
+                            <div class="timeline-content">
+                                <h4>Accessible India Portal</h4>
+                                <p>Launch of fully accessible government portal compliant with WCAG 2.1 guidelines.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-card" id="organization">
+                    <h3>Organization Structure</h3>
+                    <p>The Government of India operates through a three-tier structure:</p>
+                    <ul>
+                        <li><strong>Central Government:</strong> Headed by the Prime Minister, with various ministries and departments</li>
+                        <li><strong>State Governments:</strong> Each state has its own government headed by a Chief Minister</li>
+                        <li><strong>Local Governments:</strong> Panchayats in rural areas and Municipalities in urban areas</li>
+                    </ul>
+                    <p>This structure ensures governance at all levels, bringing services closer to citizens.</p>
+                </div>
+            </section>
+
+            <!-- Schemes & Services Page Section -->
+            <section id="schemes" class="page-section" aria-labelledby="schemes-title">
+                <h1 id="schemes-title" class="section-title">Schemes & Services</h1>
+                
+                <div class="schemes-filters">
+                    <h2>Filter Schemes</h2>
+                    <div class="filter-group">
+                        <label for="category-filter">Category:</label>
+                        <select id="category-filter" aria-label="Filter by category">
+                            <option value="all">All Categories</option>
+                            <option value="agriculture">Agriculture</option>
+                            <option value="education">Education</option>
+                            <option value="health">Health</option>
+                            <option value="employment">Employment</option>
+                            <option value="welfare">Social Welfare</option>
+                        </select>
+                        
+                        <label for="state-filter">State:</label>
+                        <select id="state-filter" aria-label="Filter by state">
+                            <option value="all">All States</option>
+                            <option value="andhra">Andhra Pradesh</option>
+                            <option value="assam">Assam</option>
+                            <option value="bihar">Bihar</option>
+                            <option value="delhi">Delhi</option>
+                            <option value="gujarat">Gujarat</option>
+                            <option value="karnataka">Karnataka</option>
+                            <option value="maharashtra">Maharashtra</option>
+                            <option value="tamil">Tamil Nadu</option>
+                            <option value="uttar">Uttar Pradesh</option>
+                            <option value="west">West Bengal</option>
+                        </select>
+                        
+                        <label for="search-schemes">Search:</label>
+                        <input type="search" id="search-schemes" placeholder="Search schemes..." aria-label="Search schemes">
+                        
+                        <button class="btn-primary" id="apply-filters">Apply Filters</button>
+                        <button class="btn-secondary" id="reset-filters">Reset</button>
+                    </div>
+                </div>
+                
+                <div class="schemes-list" id="schemes-list" aria-label="List of government schemes">
+                    <article class="scheme-card" data-category="agriculture" data-state="all">
+                        <div class="scheme-header">
+                            <h3>Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)</h3>
+                            <p>Ministry of Agriculture & Farmers Welfare</p>
+                        </div>
+                        <div class="scheme-content">
+                            <div class="scheme-description">
+                                <p>Income support of ₹6,000 per year in three equal installments to all land holding farmer families.</p>
+                            </div>
+                            <div class="scheme-details">
+                                <span><i class="fas fa-users" aria-hidden="true"></i> 10+ Crore Beneficiaries</span>
+                                <span><i class="fas fa-calendar" aria-hidden="true"></i> Ongoing</span>
+                            </div>
+                            <button class="btn-primary" aria-label="Apply for PM-KISAN scheme" onclick="applyForScheme('PM-KISAN')">Apply Now</button>
+                        </div>
+                    </article>
+                    
+                    <article class="scheme-card" data-category="education" data-state="all">
+                        <div class="scheme-header">
+                            <h3>National Scholarship Portal</h3>
+                            <p>Ministry of Education</p>
+                        </div>
+                        <div class="scheme-content">
+                            <div class="scheme-description">
+                                <p>Single platform for various scholarship schemes offered by central and state governments.</p>
+                            </div>
+                            <div class="scheme-details">
+                                <span><i class="fas fa-users" aria-hidden="true"></i> 2+ Crore Students</span>
+                                <span><i class="fas fa-calendar" aria-hidden="true"></i> Annual</span>
+                            </div>
+                            <button class="btn-primary" aria-label="Apply for scholarships" onclick="applyForScheme('Scholarship')">Apply Now</button>
+                        </div>
+                    </article>
+                    
+                    <article class="scheme-card" data-category="health" data-state="all">
+                        <div class="scheme-header">
+                            <h3>Pradhan Mantri Jan Arogya Yojana (PM-JAY)</h3>
+                            <p>Ministry of Health and Family Welfare</p>
+                        </div>
+                        <div class="scheme-content">
+                            <div class="scheme-description">
+                                <p>Health coverage of ₹5 lakh per family per year for secondary and tertiary care hospitalization.</p>
+                            </div>
+                            <div class="scheme-details">
+                                <span><i class="fas fa-users" aria-hidden="true"></i> 50+ Crore Beneficiaries</span>
+                                <span><i class="fas fa-calendar" aria-hidden="true"></i> Ongoing</span>
+                            </div>
+                            <button class="btn-primary" aria-label="Apply for PM-JAY scheme" onclick="applyForScheme('PM-JAY')">Apply Now</button>
+                        </div>
+                    </article>
+                    
+                    <article class="scheme-card" data-category="employment" data-state="all">
+                        <div class="scheme-header">
+                            <h3>Pradhan Mantri Kaushal Vikas Yojana (PMKVY)</h3>
+                            <p>Ministry of Skill Development and Entrepreneurship</p>
+                        </div>
+                        <div class="scheme-content">
+                            <div class="scheme-description">
+                                <p>Skill development training scheme to enable youth to take up industry-relevant skill training.</p>
+                            </div>
+                            <div class="scheme-details">
+                                <span><i class="fas fa-users" aria-hidden="true"></i> 1+ Crore Trained</span>
+                                <span><i class="fas fa-calendar" aria-hidden="true"></i> Ongoing</span>
+                            </div>
+                            <button class="btn-primary" aria-label="Apply for PMKVY scheme" onclick="applyForScheme('PMKVY')">Apply Now</button>
+                        </div>
+                    </article>
+                    
+                    <article class="scheme-card" data-category="welfare" data-state="all">
+                        <div class="scheme-header">
+                            <h3>Pradhan Mantri Ujjwala Yojana (PMUY)</h3>
+                            <p>Ministry of Petroleum and Natural Gas</p>
+                        </div>
+                        <div class="scheme-content">
+                            <div class="scheme-description">
+                                <p>Providing LPG connections to women from Below Poverty Line (BPL) families.</p>
+                            </div>
+                            <div class="scheme-details">
+                                <span><i class="fas fa-users" aria-hidden="true"></i> 8+ Crore Connections</span>
+                                <span><i class="fas fa-calendar" aria-hidden="true"></i> Ongoing</span>
+                            </div>
+                            <button class="btn-primary" aria-label="Apply for PMUY scheme" onclick="applyForScheme('PMUY')">Apply Now</button>
+                        </div>
+                    </article>
+                    
+                    <article class="scheme-card" data-category="agriculture" data-state="all">
+                        <div class="scheme-header">
+                            <h3>Pradhan Mantri Fasal Bima Yojana (PMFBY)</h3>
+                            <p>Ministry of Agriculture & Farmers Welfare</p>
+                        </div>
+                        <div class="scheme-content">
+                            <div class="scheme-description">
+                                <p>Crop insurance scheme to provide financial support to farmers suffering crop loss/damage.</p>
+                            </div>
+                            <div class="scheme-details">
+                                <span><i class="fas fa-users" aria-hidden="true"></i> 5+ Crore Farmers</span>
+                                <span><i class="fas fa-calendar" aria-hidden="true"></i> Annual</span>
+                            </div>
+                            <button class="btn-primary" aria-label="Apply for PMFBY scheme" onclick="applyForScheme('PMFBY')">Apply Now</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Citizen Corner Page Section -->
+            <section id="citizen" class="page-section" aria-labelledby="citizen-title">
+                <h1 id="citizen-title" class="section-title">Citizen Corner</h1>
+                
+                <!-- Download Forms Section -->
+                <div id="forms-section" class="forms-section" style="display: none;">
+                    <h2 class="section-title">Download Forms</h2>
+                    <div class="forms-grid">
+                        <div class="form-item" onclick="downloadForm('aadhaar')">
+                            <h4>Aadhaar Enrollment Form</h4>
+                            <p>Download the form for new Aadhaar enrollment</p>
+                            <button class="download-btn">Download PDF</button>
+                        </div>
+                        <div class="form-item" onclick="downloadForm('pan')">
+                            <h4>PAN Card Application</h4>
+                            <p>Application form for new PAN card</p>
+                            <button class="download-btn">Download PDF</button>
+                        </div>
+                        <div class="form-item" onclick="downloadForm('voter')">
+                            <h4>Voter ID Registration</h4>
+                            <p>Form for voter registration</p>
+                            <button class="download-btn">Download PDF</button>
+                        </div>
+                        <div class="form-item" onclick="downloadForm('passport')">
+                            <h4>Passport Application</h4>
+                            <p>Application form for passport</p>
+                            <button class="download-btn">Download PDF</button>
+                        </div>
+                        <div class="form-item" onclick="downloadForm('income')">
+                            <h4>Income Certificate</h4>
+                            <p>Form for income certificate</p>
+                            <button class="download-btn">Download PDF</button>
+                        </div>
+                        <div class="form-item" onclick="downloadForm('ration')">
+                            <h4>Ration Card</h4>
+                            <p>Application for ration card</p>
+                            <button class="download-btn">Download PDF</button>
+                        </div>
+                        <div class="form-item" onclick="downloadForm('scholarship')">
+                            <h4>Scholarship Form</h4>
+                            <p>Application for various scholarships</p>
+                            <button class="download-btn">Download PDF</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grievance Section -->
+                <div id="grievance-section" class="grievance-section" style="display: none;">
+                    <h2 class="section-title">Grievance Redressal</h2>
+                    <div class="grievance-steps">
+                        <div class="grievance-step">
+                            <h4>Step 1: Register Your Grievance</h4>
+                            <p>Fill out the grievance form with details of your complaint</p>
+                        </div>
+                        <div class="grievance-step">
+                            <h4>Step 2: Get Reference Number</h4>
+                            <p>You will receive a unique reference number for tracking</p>
+                        </div>
+                        <div class="grievance-step">
+                            <h4>Step 3: Track Status</h4>
+                            <p>Monitor status of your grievance online</p>
+                        </div>
+                        <div class="grievance-step">
+                            <h4>Step 4: Resolution</h4>
+                            <p>Receive updates on the resolution of your grievance</p>
+                        </div>
+                    </div>
+                    <button class="btn-primary mt-20" onclick="openGrievanceForm()">File a Grievance</button>
+                </div>
+
+                <!-- Helpline Section -->
+                <div id="helpline-section" style="display: none;">
+                    <h2 class="section-title">Helpline Numbers</h2>
+                    <div class="helpline-grid">
+                        <div class="helpline-card">
+                            <h4>Emergency Services</h4>
+                            <div class="helpline-number">112</div>
+                            <div class="helpline-timing">24/7 Available</div>
+                        </div>
+                        <div class="helpline-card">
+                            <h4>COVID-19 Helpline</h4>
+                            <div class="helpline-number">1075</div>
+                            <div class="helpline-timing">24/7 Available</div>
+                        </div>
+                        <div class="helpline-card">
+                            <h4>Women Helpline</h4>
+                            <div class="helpline-number">1091</div>
+                            <div class="helpline-timing">24/7 Available</div>
+                        </div>
+                        <div class="helpline-card">
+                            <h4>Child Helpline</h4>
+                            <div class="helpline-number">1098</div>
+                            <div class="helpline-timing">24/7 Available</div>
+                        </div>
+                        <div class="helpline-card">
+                            <h4>Senior Citizens</h4>
+                            <div class="helpline-number">14567</div>
+                            <div class="helpline-timing">10 AM - 6 PM</div>
+                        </div>
+                        <div class="helpline-card">
+                            <h4>Aadhaar</h4>
+                            <div class="helpline-number">1947</div>
+                            <div class="helpline-timing">24/7 Available</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Default Citizen Services View -->
+                <div id="default-citizen-view">
+                    <div class="citizen-services" aria-labelledby="services-grid-title">
+                        <h2 id="services-grid-title" class="sr-only">Citizen Services</h2>
+                        <div class="citizen-service-card" tabindex="0" role="button" aria-label="Download Forms" onclick="showSection('forms')">
+                            <i class="fas fa-file-download" aria-hidden="true"></i>
+                            <h3>Download Forms</h3>
+                            <p>Access and download various government application forms</p>
+                        </div>
+                        <div class="citizen-service-card" tabindex="0" role="button" aria-label="Grievance Redressal" onclick="showSection('grievance')">
+                            <i class="fas fa-hands-helping" aria-hidden="true"></i>
+                            <h3>Grievance Redressal</h3>
+                            <p>Register and track your grievances with government departments</p>
+                        </div>
+                        <div class="citizen-service-card" tabindex="0" role="button" aria-label="Track Applications" onclick="trackApplications()">
+                            <i class="fas fa-search-location" aria-hidden="true"></i>
+                            <h3>Track Applications</h3>
+                            <p>Check status of your various government applications</p>
+                        </div>
+                        <div class="citizen-service-card" tabindex="0" role="button" aria-label="Public Services" onclick="showSection('public')">
+                            <i class="fas fa-concierge-bell" aria-hidden="true"></i>
+                            <h3>Public Services</h3>
+                            <p>Information about various public utility services</p>
+                        </div>
+                        <div class="citizen-service-card" tabindex="0" role="button" aria-label="Helpline Numbers" onclick="showSection('helpline')">
+                            <i class="fas fa-phone-alt" aria-hidden="true"></i>
+                            <h3>Helpline Numbers</h3>
+                            <p>Important contact numbers for various government services</p>
+                        </div>
+                        <div class="citizen-service-card" tabindex="0" role="button" aria-label="RTI Information" onclick="showSection('rti')">
+                            <i class="fas fa-info-circle" aria-hidden="true"></i>
+                            <h3>RTI Information</h3>
+                            <p>Right to Information Act details and online filing</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-section" aria-labelledby="faq-title">
+                        <h2 id="faq-title" class="section-title">Frequently Asked Questions</h2>
+                        
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" aria-controls="faq1-answer">
+                                <span>How do I apply for government schemes online?</span>
+                                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                            </button>
+                            <div class="faq-answer" id="faq1-answer">
+                                <p>To apply for government schemes online, follow these steps:</p>
+                                <ol>
+                                    <li>Visit to official government portal</li>
+                                    <li>Navigate to "Schemes & Services" section</li>
+                                    <li>Select scheme you wish to apply for</li>
+                                    <li>Register or login with your credentials</li>
+                                    <li>Fill in to application form with required details</li>
+                                    <li>Upload necessary documents</li>
+                                    <li>Submit to application and note to reference number</li>
+                                </ol>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" aria-controls="faq2-answer">
+                                <span>What documents are required for most government applications?</span>
+                                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                            </button>
+                            <div class="faq-answer" id="faq2-answer">
+                                <p>Commonly required documents for government applications include:</p>
+                                <ul>
+                                    <li>Aadhaar Card</li>
+                                    <li>PAN Card</li>
+                                    <li>Voter ID Card</li>
+                                    <li>Address Proof (Ration Card, Electricity Bill, etc.)</li>
+                                    <li>Income Certificate</li>
+                                    <li>Caste Certificate (if applicable)</li>
+                                    <li>Passport size photographs</li>
+                                </ul>
+                                <p>Specific documents may vary depending on to scheme or service you're applying for.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" aria-controls="faq3-answer">
+                                <span>How can I track the status of my application?</span>
+                                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                            </button>
+                            <div class="faq-answer" id="faq3-answer">
+                                <p>To track your application status:</p>
+                                <ol>
+                                    <li>Visit to "Track Applications" section in Citizen Corner</li>
+                                    <li>Enter your application reference number</li>
+                                    <li>Alternatively, login to your account and view your application history</li>
+                                    <li>You can also check status through SMS updates if you've registered your mobile number</li>
+                                    <li>For additional help, contact the helpline number provided during application</li>
+                                </ol>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false" aria-controls="faq4-answer">
+                                <span>What is the process for filing a grievance?</span>
+                                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                            </button>
+                            <div class="faq-answer" id="faq4-answer">
+                                <p>To file a grievance:</p>
+                                <ol>
+                                    <li>Navigate to "Grievance Redressal" section in Citizen Corner</li>
+                                    <li>Fill in the grievance form with details of your complaint</li>
+                                    <li>Select the relevant department and category</li>
+                                    <li>Provide supporting documents if available</li>
+                                    <li>Submit the form and note to grievance registration number</li>
+                                    <li>You can track the status of your grievance using the registration number</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Accessibility Page Section -->
+            <section id="accessibility" class="page-section" aria-labelledby="accessibility-title">
+                <h1 id="accessibility-title" class="section-title">Accessibility</h1>
+                
+                <div class="accessibility-content">
+                    <div class="accessibility-card">
+                        <h3>Screen Reader Support</h3>
+                        <p>This website is designed to be fully compatible with screen readers. We've implemented:</p>
+                        <ul>
+                            <li>Proper heading structure (h1, h2, h3)</li>
+                            <li>Descriptive alt text for all images</li>
+                            <li>ARIA labels and roles for interactive elements</li>
+                            <li>Skip links for quick navigation</li>
+                            <li>Logical reading order</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="accessibility-card">
+                        <h3>Keyboard Navigation</h3>
+                        <p>You can navigate this website using only your keyboard:</p>
+                        <ul>
+                            <li>Use Tab to move between interactive elements</li>
+                            <li>Use Shift+Tab to move backward</li>
+                            <li>Use Enter or Space to activate buttons and links</li>
+                            <li>Use Arrow keys to navigate within menus</li>
+                            <li>Use Escape to close dropdowns and modals</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="accessibility-card">
+                        <h3>Visual Adjustments</h3>
+                        <p>This website offers several visual adjustment options:</p>
+                        <ul>
+                            <li>Text size adjustment (A-, A, A+ buttons)</li>
+                            <li>High contrast mode toggle</li>
+                            <li>Dark mode toggle</li>
+                            <li>Focus indicators for all interactive elements</li>
+                            <li>Consistent color scheme with sufficient contrast</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="accessibility-card">
+                        <h3>Voice Reader</h3>
+                        <p>Use our built-in voice reader to have content read aloud:</p>
+                        <ul>
+                            <li>Click the voice reader button in the top bar</li>
+                            <li>Use Alt+R keyboard shortcut</li>
+                            <li>Adjust reading speed and voice type</li>
+                            <li>Pause, resume, or stop reading at any time</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="accessibility-card mt-20">
+                    <h3>Keyboard Shortcuts</h3>
+                    <div class="keyboard-shortcuts">
+                        <div class="shortcut-item">
+                            <span>Go to Home</span>
+                            <span class="shortcut-key">Alt + 1</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <span>Go to About Us</span>
+                            <span class="shortcut-key">Alt + 2</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <span>Go to Schemes & Services</span>
+                            <span class="shortcut-key">Alt + 3</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <span>Go to Citizen Corner</span>
+                            <span class="shortcut-key">Alt + 4</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <span>Go to Accessibility</span>
+                            <span class="shortcut-key">Alt + 5</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <span>Go to Contact Us</span>
+                            <span class="shortcut-key">Alt + 6</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <span>Increase Text Size</span>
+                            <span class="shortcut-key">Alt +</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <span>Decrease Text Size</span>
+                            <span class="shortcut-key">Alt -</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <span>Reset Text Size</span>
+                            <span class="shortcut-key">Alt 0</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <span>Toggle High Contrast</span>
+                            <span class="shortcut-key">Alt C</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <span>Toggle Dark Mode</span>
+                            <span class="shortcut-key">Alt D</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <span>Start Voice Reader</span>
+                            <span class="shortcut-key">Alt R</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <span>Open Feedback Form</span>
+                            <span class="shortcut-key">Alt F</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <span>Focus Search</span>
+                            <span class="shortcut-key">Alt S</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Us Page Section -->
+            <section id="contact" class="page-section" aria-labelledby="contact-title">
+                <h1 id="contact-title" class="section-title">Contact Us</h1>
+                
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Get in Touch</h3>
+                        <p>We value your feedback and are here to assist you with any queries or concerns.</p>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            <div>
+                                <h4>Address</h4>
+                                <p>Government of India<br>Central Secretariat<br>New Delhi - 110001</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt" aria-hidden="true"></i>
+                            <div>
+                                <h4>Helpline Numbers</h4>
+                                <p>Toll-Free: 1800-123-4567<br>International: +91-11-23456789</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>General: info@gov.in<br>Support: support@gov.in</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-clock" aria-hidden="true"></i>
+                            <div>
+                                <h4>Working Hours</h4>
+                                <p>Monday to Friday: 9:00 AM - 6:00 PM<br>Saturday: 9:00 AM - 1:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h3>Send us a Message</h3>
+                        <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+                        
+                        <form id="contact-form" novalidate>
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required aria-required="true">
+                                <span class="form-error" id="name-error">Please enter your full name</span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required aria-required="true">
+                                <span class="form-error" id="email-error">Please enter a valid email address</span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" aria-describedby="phone-help">
+                                <span id="phone-help" class="sr-only">Enter 10-digit phone number without country code</span>
+                                <span class="form-error" id="phone-error">Please enter a valid 10-digit phone number</span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject *</label>
+                                <select id="subject" name="subject" required aria-required="true">
+                                    <option value="">Select a subject</option>
+                                    <option value="query">General Query</option>
+                                    <option value="scheme">Scheme Information</option>
+                                    <option value="application">Application Status</option>
+                                    <option value="grievance">Grievance</option>
+                                    <option value="feedback">Website Feedback</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <span class="form-error" id="subject-error">Please select a subject</span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+                                <span class="form-error" id="message-error">Please enter your message</span>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn-primary">Send Message</button>
+                                <button type="reset" class="btn-secondary">Reset Form</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home" data-page="home">Home</a></li>
+                        <li><a href="#about" data-page="about">About Us</a></li>
+                        <li><a href="#schemes" data-page="schemes">Schemes & Services</a></li>
+                        <li><a href="#citizen" data-page="citizen">Citizen Corner</a></li>
+                        <li><a href="#accessibility" data-page="accessibility">Accessibility</a></li>
+                        <li><a href="#contact" data-page="contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Important Portals</h3>
+                    <ul>
+                        <li><a href="#">Digital India</a></li>
+                        <li><a href="#">MyGov</a></li>
+                        <li><a href="#">National Portal</a></li>
+                        <li><a href="#">Data Portal</a></li>
+                        <li><a href="#">Services Portal</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Government Directory</a></li>
+                        <li><a href="#">Publications</a></li>
+                        <li><a href="#">Forms</a></li>
+                        <li><a href="#">Tenders</a></li>
+                        <li><a href="#">Policies</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <p>Stay updated with the latest government initiatives and announcements.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">
+                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <i class="fab fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" aria-label="YouTube">
+                            <i class="fab fa-youtube" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Government of India. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a> | <a href="#">Accessibility Statement</a> | <a href="#">Website Policies</a></p>
+                <p>Content Owned by Government of India | Last Updated: <time datetime="2025-07-14">July 14, 2025</time></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Authentication Modal -->
+    <div id="auth-modal" class="modal" role="dialog" aria-labelledby="auth-title" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="auth-title">Login / Sign Up</h2>
+                <button class="close-button" onclick="closeAuthModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" onclick="switchAuthTab('user-login')">User Login</button>
+                    <button class="auth-tab" onclick="switchAuthTab('admin-login')">Admin Login</button>
+                    <button class="auth-tab" onclick="switchAuthTab('signup')">Sign Up</button>
+                </div>
+                
+                <!-- User Login Form -->
+                <form id="user-login-form" class="auth-form active">
+                    <div class="form-group">
+                        <label for="user-login-email">Email Address</label>
+                        <input type="email" id="user-login-email" required>
+                        <span class="form-error">Please enter a valid email address</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="user-login-password">Password</label>
+                        <div class="password-toggle">
+                            <input type="password" id="user-login-password" required>
+                            <button type="button" onclick="togglePassword('user-login-password')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <span class="form-error">Please enter your password</span>
+                    </div>
+                    
+                    <div class="remember-forgot">
+                        <label>
+                            <input type="checkbox" id="user-remember-me">
+                            Remember me
+                        </label>
+                        <a href="#" onclick="forgotPassword()">Forgot Password?</a>
+                    </div>
+                    
+                    <button type="submit" class="auth-submit">Login</button>
+                </form>
+                
+                <!-- Admin Login Form -->
+                <form id="admin-login-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="admin-login-username">Admin Username or Email</label>
+                        <input type="text" id="admin-login-username" required>
+                        <span class="form-error">Please enter your admin username or email</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="admin-login-password">Admin Password</label>
+                        <div class="password-toggle">
+                            <input type="password" id="admin-login-password" required>
+                            <button type="button" onclick="togglePassword('admin-login-password')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <span class="form-error">Please enter your admin password</span>
+                    </div>
+                    
+                    <button type="submit" class="auth-submit">Login as Admin</button>
+                </form>
+                
+                <!-- Signup Form -->
+                <form id="signup-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="signup-name">Full Name</label>
+                        <input type="text" id="signup-name" required>
+                        <span class="form-error">Please enter your full name</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signup-email">Email Address</label>
+                        <input type="email" id="signup-email" required>
+                        <span class="form-error">Please enter a valid email address</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signup-phone">Phone Number</label>
+                        <input type="tel" id="signup-phone" pattern="[0-9]{10}" required>
+                        <span class="form-error">Please enter a valid 10-digit phone number</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signup-password">Password</label>
+                        <div class="password-toggle">
+                            <input type="password" id="signup-password" required>
+                            <button type="button" onclick="togglePassword('signup-password')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <span class="form-error">Password must be at least 8 characters</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signup-confirm-password">Confirm Password</label>
+                        <div class="password-toggle">
+                            <input type="password" id="signup-confirm-password" required>
+                            <button type="button" onclick="togglePassword('signup-confirm-password')">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <span class="form-error">Passwords do not match</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="agree-terms" required>
+                            I agree to the <a href="#">Terms and Conditions</a>
+                        </label>
+                        <span class="form-error">You must agree to terms and conditions</span>
+                    </div>
+                    
+                    <button type="submit" class="auth-submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Grievance Form Modal -->
+    <div id="grievance-modal" class="modal" role="dialog" aria-labelledby="grievance-title" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="grievance-title">File a Grievance</h2>
+                <button class="close-button" onclick="closeGrievanceModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="grievance-form">
+                    <div class="form-group">
+                        <label for="grievance-name">Full Name</label>
+                        <input type="text" id="grievance-name" required>
+                        <span class="form-error">Please enter your full name</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="grievance-email">Email Address</label>
+                        <input type="email" id="grievance-email" required>
+                        <span class="form-error">Please enter a valid email address</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="grievance-phone">Phone Number</label>
+                        <input type="tel" id="grievance-phone" pattern="[0-9]{10}" required>
+                        <span class="form-error">Please enter a valid 10-digit phone number</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="grievance-department">Department</label>
+                        <select id="grievance-department" required>
+                            <option value="">Select Department</option>
+                            <option value="agriculture">Agriculture</option>
+                            <option value="education">Education</option>
+                            <option value="health">Health</option>
+                            <option value="employment">Employment</option>
+                            <option value="welfare">Social Welfare</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <span class="form-error">Please select a department</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="grievance-category">Category</label>
+                        <select id="grievance-category" required>
+                            <option value="">Select Category</option>
+                            <option value="service">Service Issue</option>
+                            <option value="scheme">Scheme Related</option>
+                            <option value="payment">Payment Issue</option>
+                            <option value="staff">Staff Behavior</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <span class="form-error">Please select a category</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="grievance-subject">Subject</label>
+                        <input type="text" id="grievance-subject" required>
+                        <span class="form-error">Please enter a subject</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="grievance-description">Description</label>
+                        <textarea id="grievance-description" rows="5" required></textarea>
+                        <span class="form-error">Please describe your grievance</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="grievance-attachment">Attachment (Optional)</label>
+                        <input type="file" id="grievance-attachment" accept=".pdf,.jpg,.jpeg,.png">
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Submit Grievance</button>
+                        <button type="button" class="btn-secondary" onclick="closeGrievanceModal()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
